@@ -1,0 +1,3 @@
+/* Ajustes sobre Tailwind (CDN) */
+[data-flash] { transition: opacity .4s ease; }
+[data-flash].oculto { opacity: 0; }
