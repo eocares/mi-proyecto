@@ -1,0 +1,14 @@
+Para ponerlo en marcha
+
+Crea la base de datos en MySQL: CREATE DATABASE contactos_db CHARACTER SET utf8mb4;. Las tablas las crea la app sola.
+Edita .env con tu usuario y contraseña de MySQL, y cambia SECRET_KEY.
+Instala y ejecuta:
+bash
+   python -m venv venv
+   source venv/bin/activate      # Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   python app.py                 # http://127.0.0.1:5000
+
+Producción sin nginx: pon APP_ENV=production en el .env y ejecuta python app.py. En ese modo app.py sirve con Waitress en el puerto 8000, sin necesitar nginx. Sin nginx no tendrás HTTPS automático, así que si lo necesitas, puedes poner Cloudflare delante.
+
+Añadí un __init__.py en services/, que no aparece en tu imagen, para que el paquete se importe sin problemas. Aparte del .env hay que subir poco a Git, porque el .gitignore ya lo excluye.
